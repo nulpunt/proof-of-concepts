@@ -9,7 +9,9 @@ import (
 	"strings"
 )
 
-const imageName = "differentFonts.png"
+// const imageName = "differentFonts.png"
+const imageName = "pkiTaskforce.png"
+const languageType = "nld" // eng
 
 var pageHTML = `<!DOCTYPE html>
 <html>
@@ -99,7 +101,7 @@ func main() {
 	http.Handle("/files/", http.StripPrefix("/files/", http.FileServer(http.Dir("./files/"))))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		// create new tess instance and point it to the tessdata location. Set language to english.
-		t, err := tesseract.NewTess("/usr/local/share/tessdata", "eng")
+		t, err := tesseract.NewTess("/usr/local/share/tessdata", languageType)
 		if err != nil {
 			log.Printf("Error while initializing Tess: %s\n", err)
 			return
