@@ -21,7 +21,7 @@
 				user-select: all;
 			}
 
-			#docviewer {
+			#docviewer { 
 				position: relative;
 			}
 			.character {
@@ -32,13 +32,24 @@
 				/*background-color: rgba(255, 255, 255, 0.8);*/
 				color: rgba(0,0,0,0);
 			}
+			::selection {
+				background: rgba(255,255,0,0.5); /* Safari */
+				}
+			::-moz-selection {
+				background: rgba(255,255,0,0.5); /* Firefox */
+			}
+			.imageBox {
+				background-image: url(pkiTaskforce.png);
+				width: 600px;
+				height: 1000px;
+			}
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js" ></script>
 		<script src="script.js" ></script>
 	</head>
 	<body>
 		<div id="docviewer" ng-controller="DocviewerCtrl" >
-			<img src="pkiTaskforce.png" />
+			<div class="imageBox"></div>
 			<div id="lines" class="selectable" >
 				<div class="line" ng-repeat="line in text.lines">
 					<div class="character character-{{character.c}}" style="bottom: {{character.y}}px; left: {{character.x}}px;" ng-repeat="character in line.characters">{{character.c}}</div>
