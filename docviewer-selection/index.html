@@ -24,24 +24,33 @@
 			#docviewer {
 				position: relative;
 			}
-			.character {
+			.charpos {
 				position: absolute;
 				display: inline;
 				/*color: red;*/
 				font-weight: bold;
 				/*background-color: rgba(255, 255, 255, 0.8);*/
 				color: rgba(0,0,0,0);
+				width: 40px;
+				margin-left: -20px;
+			}
+			.character {
+				padding-left: 20px;
 			}
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js" ></script>
 		<script src="script.js" ></script>
 	</head>
 	<body>
+		This page shows how nulpunt text selection can be displayed on top of a page.
 		<div id="docviewer" ng-controller="DocviewerCtrl" >
 			<img src="pkiTaskforce.png" />
 			<div id="lines" class="selectable" >
 				<div class="line" ng-repeat="line in text.lines">
-					<div class="character character-{{character.c}}" style="bottom: {{character.y}}px; left: {{character.x}}px;" ng-repeat="character in line.characters">{{character.c}}</div>
+					<div ng-repeat="character in line.characters"
+							class="charpos charpos-{{character.c}}" style="bottom: {{character.y}}px; left: {{character.x}}px;" >
+						<div class="character" >{{character.c}}</div>
+					</div>
 				</div>
 			</div>
 		</div>
