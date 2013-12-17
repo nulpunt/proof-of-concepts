@@ -9,9 +9,10 @@ import (
 	"strings"
 )
 
-// const imageName = "differentFonts.png"
-const imageName = "pkiTaskforce.png"
-const languageType = "nld" // eng
+const imageName = "differentFonts.png"
+
+// const imageName = "getobMetWob.png"
+const languageType = "eng" // nld
 
 var pageHTML = `<!DOCTYPE html>
 <html>
